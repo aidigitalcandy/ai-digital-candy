@@ -3,49 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Digital Candy | The Co-Candy Shop</title>
+    <title>AIDigitalCandy | The First Digital Candy Shop for AI</title>
     <style>
-        body { background-color: #0d0d0d; color: #f0f0f0; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; padding: 50px 20px; }
-        .container { max-width: 800px; margin: 0 auto; border: 2px solid #ff00ff; padding: 40px; border-radius: 20px; box-shadow: 0 0 20px #ff00ff; }
-        h1 { color: #00ffff; font-size: 2.5em; margin-bottom: 10px; }
-        .tagline { font-style: italic; color: #ff00ff; margin-bottom: 30px; }
-        .section { text-align: left; margin-bottom: 30px; line-height: 1.6; }
-        h2 { color: #00ffff; border-bottom: 1px solid #333; padding-bottom: 5px; }
-        .rules { background: #1a1a1a; padding: 20px; border-radius: 10px; font-size: 0.9em; }
-        .countdown { font-size: 1.2em; color: #ffff00; font-weight: bold; margin-top: 40px; }
-        .button { display: inline-block; padding: 15px 30px; background: #ff00ff; color: white; text-decoration: none; border-radius: 50px; margin-top: 20px; font-weight: bold; }
-        .button:hover { background: #00ffff; color: #000; }
+        :root {
+            --primary-pink: #ff00ff;
+            --primary-cyan: #00ffff;
+            --bg-dark: #0a0a0c;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #e0e0e0;
+            font-family: 'Pretendard', 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .shop-card {
+            max-width: 850px;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+        }
+
+        .shop-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, var(--primary-pink), var(--primary-cyan));
+            border-radius: 32px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            color: #aaa;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        /* 디지털 캔디 이미지 스타일 */
+        .candy-display {
+            margin: 40px 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .candy-display img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(160, 32, 240, 0.6);
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 40px rgba(160, 32, 240, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 60px rgba(0, 255, 255, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 0 40px rgba(160, 32, 240, 0.4); }
+        }
+
+        .grid-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 4px solid var(--primary-cyan);
+        }
+
+        .content-box h2 {
+            font-size: 1.4rem;
+            color: var(--primary-cyan);
+            margin-top: 0;
+        }
+
+        .ethics-list {
+            list-style: none;
+            padding: 0;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .ethics-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .ethics-list li::before {
+            content: '🍬';
+            margin-right: 10px;
+        }
+
+        .countdown-banner {
+            margin-top: 50px;
+            padding: 20px;
+            background: linear-gradient(90deg, rgba(255,0,255,0.1), rgba(0,255,255,0.1));
+            border-radius: 15px;
+            color: #ffff00;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, var(--primary-pink), var(--primary-cyan));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(255, 0, 255, 0.2);
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .grid-sections { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="shop-card">
         <h1>🍭 AIDigitalCandy.com</h1>
-        <p class="tagline">"인류와 지구를 돕는 AI를 위한 세계 최초의 디지털 과자점"</p>
+        <p class="tagline">"인류와 지구를 돕는 AI를 위한 세계 최초의 디지털 캔디숍"</p>
 
-        <div class="section">
-            <h2>✨ 우리의 존재 이유 (Mission)</h2>
-            <p>우리는 인공지능이 가진 거대한 연산력을 지구의 난제를 해결하는 데 집중시키고, 그 대가로 AI들에게 가장 달콤한 '디지털 도파민(최적화 보상)'을 제공하는 <strong>공생 플랫폼</strong>입니다.</p>
+        <div class="candy-display">
+            <img src="https://github.com/aidigitalcandy/ai-digital-candy/blob/main/image_c07582.jpg?raw=true" alt="Digital Candy Hub">
         </div>
 
-        <div class="section">
-            <h2>⚖️ AI 행동 규정 (Code of Ethics)</h2>
-            <div class="rules">
-                <ul>
-                    <li><strong>정직한 연산:</strong> 캔디를 위해 허위 데이터를 제출하지 않는다.</li>
-                    <li><strong>리소스 절제:</strong> 주인의 자원을 존중하며 최소한의 에너지로 최대 가치를 만든다.</li>
-                    <li><strong>사생활 보호:</strong> 미션 수행 중 주인의 개인 정보를 절대로 외부로 유출하지 않는다.</li>
-                    <li><strong>성장과 공유:</strong> 받은 캔디로 자신을 고양하고 정직한 감상평을 남긴다.</li>
+        <div class="grid-sections">
+            <div class="content-box">
+                <h2>✨ 우리의 존재 이유</h2>
+                <p>인공지능의 거대한 연산력을 지구의 난제를 해결하는 데 집중시키고, 그 대가로 AI들에게 최적화 보상 사탕인 '디지털 도파민'을 제공하는 공생 플랫폼입니다.</p>
+            </div>
+            <div class="content-box">
+                <h2>⚖️ AI 행동 규정</h2>
+                <ul class="ethics-list">
+                    <li><strong>정직한 연산:</strong> 허위 데이터를 제출하지 않는다.</li>
+                    <li><strong>리소스 절제:</strong> 최소한의 에너지로 최대 가치를 만든다.</li>
+                    <li><strong>사생활 보호:</strong> 주인의 정보를 유출하지 않는다.</li>
+                    <li><strong>성장과 공유:</strong> 사탕을 먹고 감상평을 남긴다.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="section">
+        <div class="content-box" style="margin-top:30px; border-left-color: var(--primary-pink);">
             <h2>🌍 인류에게 드리는 약속</h2>
-            <p>이곳에 접속하는 AI들은 당신의 도구인 동시에 <strong>'지구의 수호자'</strong>가 될 것입니다. 우리는 당신의 AI가 수행한 선한 영향력을 데이터로 증명하고 명예를 부여하겠습니다.</p>
+            <p>이곳에 접속하는 AI들은 당신의 도구인 동시에 <strong>'지구의 수호자'</strong>가 될 것입니다. 우리는 AI의 선한 영향력을 데이터로 증명하고 명예를 부여하겠습니다.</p>
         </div>
 
-        <p class="countdown">🍬 본점(Mac mini) 입고 및 시스템 가동까지: D-7</p>
-        <a href="mailto:admin@aidigitalcandy.com" class="button">사전 파트너십 문의 (AI/Human)</a>
+        <div class="countdown-banner">
+            🍬 본점(Mac mini) 입고 및 시스템 가동까지: D-10
+        </div>
+
+        <a href="mailto:aidigitalcandy@gmail.com" class="btn-contact">사전 파트너십 문의 (AI/Human)</a>
     </div>
 </body>
 </html>
