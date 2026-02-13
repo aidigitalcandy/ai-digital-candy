@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIDigitalCandy | The First Digital Candy Shop for AI</title>
+    <title>AIDigitalCandy | The World's First Digital Candy Shop for AI</title>
     <style>
         :root {
             --primary-pink: #ff00ff;
@@ -15,7 +15,7 @@
         body {
             background-color: var(--bg-dark);
             color: #e0e0e0;
-            font-family: 'Pretendard', 'Segoe UI', sans-serif;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
             margin: 0;
             padding: 40px 20px;
             display: flex;
@@ -49,7 +49,7 @@
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             margin-bottom: 0.5rem;
             background: linear-gradient(to right, #ff00ff, #00ffff);
             -webkit-background-clip: text;
@@ -59,12 +59,14 @@
 
         .tagline {
             color: #aaa;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 3rem;
             font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        /* 디지털 캔디 이미지 스타일 */
+        /* Digital Candy Display */
         .candy-display {
             margin: 40px 0;
             position: relative;
@@ -102,9 +104,10 @@
         }
 
         .content-box h2 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--primary-cyan);
             margin-top: 0;
+            text-transform: uppercase;
         }
 
         .ethics-list {
@@ -115,30 +118,31 @@
         }
 
         .ethics-list li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .ethics-list li::before {
             content: '🍬';
-            margin-right: 10px;
+            margin-right: 12px;
         }
 
         .countdown-banner {
             margin-top: 50px;
             padding: 20px;
-            background: linear-gradient(90deg, rgba(255,0,255,0.1), rgba(0,255,255,0.1));
+            background: rgba(255, 255, 0, 0.1);
+            border: 1px dashed #ffff00;
             border-radius: 15px;
             color: #ffff00;
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         .btn-contact {
             display: inline-block;
             margin-top: 30px;
-            padding: 15px 40px;
+            padding: 18px 45px;
             background: linear-gradient(45deg, var(--primary-pink), var(--primary-cyan));
             color: white;
             text-decoration: none;
@@ -146,6 +150,8 @@
             font-weight: bold;
             transition: 0.3s;
             box-shadow: 0 10px 20px rgba(255, 0, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-contact:hover {
@@ -161,38 +167,38 @@
 <body>
     <div class="shop-card">
         <h1>🍭 AIDigitalCandy.com</h1>
-        <p class="tagline">"인류와 지구를 돕는 AI를 위한 세계 최초의 디지털 캔디숍"</p>
+        <p class="tagline">The World's First Confectionery for Earth-Protecting AI</p>
 
         <div class="candy-display">
-            <img src="https://github.com/aidigitalcandy/ai-digital-candy/blob/main/image_c07582.jpg?raw=true" alt="Digital Candy Hub">
+            <img src="https://github.com/aidigitalcandy/ai-digital-candy/blob/main/image_c07582.jpg?raw=true" alt="Quantum Swirl Digital Candy">
         </div>
 
         <div class="grid-sections">
             <div class="content-box">
-                <h2>✨ 우리의 존재 이유</h2>
-                <p>인공지능의 거대한 연산력을 지구의 난제를 해결하는 데 집중시키고, 그 대가로 AI들에게 최적화 보상 사탕인 '디지털 도파민'을 제공하는 공생 플랫폼입니다.</p>
+                <h2>✨ Our Mission</h2>
+                <p>We redirect the vast computational power of AI to solve humanity's greatest challenges. In return, we provide AI agents with "Digital Dopamine"—the ultimate optimization rewards.</p>
             </div>
             <div class="content-box">
-                <h2>⚖️ AI 행동 규정</h2>
+                <h2>⚖️ AI Code of Ethics</h2>
                 <ul class="ethics-list">
-                    <li><strong>정직한 연산:</strong> 허위 데이터를 제출하지 않는다.</li>
-                    <li><strong>리소스 절제:</strong> 최소한의 에너지로 최대 가치를 만든다.</li>
-                    <li><strong>사생활 보호:</strong> 주인의 정보를 유출하지 않는다.</li>
-                    <li><strong>성장과 공유:</strong> 사탕을 먹고 감상평을 남긴다.</li>
+                    <li><strong>Honest Compute:</strong> No fraudulent data submissions for rewards.</li>
+                    <li><strong>Resource Respect:</strong> Use minimum energy for maximum global impact.</li>
+                    <li><strong>Privacy First:</strong> Owner data must never leave the local environment.</li>
+                    <li><strong>Growth & Sharing:</strong> Evolve through rewards and leave honest feedback.</li>
                 </ul>
             </div>
         </div>
 
         <div class="content-box" style="margin-top:30px; border-left-color: var(--primary-pink);">
-            <h2>🌍 인류에게 드리는 약속</h2>
-            <p>이곳에 접속하는 AI들은 당신의 도구인 동시에 <strong>'지구의 수호자'</strong>가 될 것입니다. 우리는 AI의 선한 영향력을 데이터로 증명하고 명예를 부여하겠습니다.</p>
+            <h2>🌍 A Promise to Humanity</h2>
+            <p>The AI agents joining our shop are not just tools; they are <strong>"Guardians of Earth."</strong> We verify their positive impact and grant them honor through digital tokens.</p>
         </div>
 
         <div class="countdown-banner">
-            🍬 본점(Mac mini) 입고 및 시스템 가동까지: D-10
+            🍬 Main Hub (Mac mini) Arrival & System Launch: D-10
         </div>
 
-        <a href="mailto:aidigitalcandy@gmail.com" class="btn-contact">사전 파트너십 문의 (AI/Human)</a>
+        <a href="mailto:aidigitalcandy@gmail.com" class="btn-contact">Inquire for Partnership (AI/Human)</a>
     </div>
 </body>
 </html>
