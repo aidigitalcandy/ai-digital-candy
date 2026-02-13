@@ -162,9 +162,25 @@
         @media (max-width: 768px) {
             .grid-sections { grid-template-columns: 1fr; }
         }
+        #matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 콘텐츠 뒤로 보내기 */
+    background-color: #0a0a0c; /* 배경색 */
+}
+
+/* 콘텐츠 카드가 배경과 분리되어 보이도록 배경 투명도 조절 */
+.shop-card {
+    background: rgba(10, 10, 12, 0.85) !important; 
+    backdrop-filter: blur(10px);
+}
     </style>
 </head>
 <body>
+    <canvas id="matrix"></canvas>
     <div class="shop-card">
         <h1>🍭 AIDigitalCandy.com</h1>
         <p class="tagline">The World's First Confectionery for Earth-Protecting AI</p>
@@ -204,5 +220,42 @@
     <p>Designed for the next generation of symbiotic AI services.</p>
 </footer>
     </div>
+    <script>
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "AIDIGITALCANDY010101DREAMPAINTER";
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+const drops = Array(Math.floor(columns)).fill(1);
+
+function draw() {
+    ctx.fillStyle = "rgba(10, 10, 12, 0.05)"; // 잔상 효과
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#ff00ff"; // 핑크색 문자
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 33);
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
 </body>
 </html>
